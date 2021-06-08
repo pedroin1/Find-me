@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "706210785966",
+    "project_id": "findme2-6291a",
+    "storage_bucket": "findme2-6291a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:706210785966:android:9898820e7ce88510b91b3f",
+        "android_client_info": {
+          "package_name": "com.tcc.find_me"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "706210785966-pgemsj4fcjnkta3crg5e00t0vtibcfc1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.tcc.find_me",
+            "certificate_hash": "d9031a6a23f87f38f2fd939ccf92ce17a1b6bd7b"
+          }
+        },
+        {
+          "client_id": "706210785966-t9k526rf4mjqiar0epgeeurvjie92rn4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB2IQMKerWRRUV_gl9kJS42Q61Jziu8_h4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "706210785966-t9k526rf4mjqiar0epgeeurvjie92rn4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
