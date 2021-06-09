@@ -16,15 +16,6 @@ public class CadastroDadosActivity extends AppCompatActivity {
         setContentView(R.layout.activity_cadastro);
     }
 
-
-
-
-
-
-
-
-
-
     public String verificaTipoUsuario(){
         return switchTipoUsuario.isChecked() ? "C" : "P" ;
     }

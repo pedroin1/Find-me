@@ -1,6 +1,7 @@
 package com.tcc.find_me.model;
 
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.Exclude;
 import com.tcc.find_me.config.ConfiguracaoFirebase;
 
 public class Usuario {
@@ -17,28 +18,21 @@ public class Usuario {
     public Usuario() {
     }
     public void salvar(){
+
         DatabaseReference firebaseRef = ConfiguracaoFirebase.getFirebaseDatabase();
         DatabaseReference usuarios = firebaseRef.child( "usuarios").child(getIdUsuario());
-
         usuarios.setValue(this);
 
         /*firebaseRef.child("Cliente")
                 .child(this.getIdUsuario())
                 .setValue(this);   */
-
-
         /*
         DatabaseReference firebase = ConfiguracaoFirebase.getFirebase();
         firebase.child("Cliente")
                 .child(this.IdUsuario)
                 .setValue(this);
         */
-
-
-
     }
-
-
 
     public String getEmail() {
         return email;
@@ -48,6 +42,7 @@ public class Usuario {
         this.email = email;
     }
 
+    @Exclude //para nao salvar a senha no BD
     public String getSenha() {
         return senha;
     }

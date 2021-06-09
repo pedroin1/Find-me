@@ -9,8 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Find_me">
-        <activity android:name=".CadastrarLoginActivity"
-            android:label="@string/titulo_cadastro"></activity>
+        <activity android:name=".Perfil.ProfissionalActivity"></activity>
+        <activity android:name=".Perfil.ClienteActivity" />
+        <activity
+            android:name=".CadastrarLoginActivity"
+            android:label="@string/titulo_cadastro" />
         <activity android:name=".CadastroDadosActivity" />
         <activity
             android:name=".LoginActivity"
