@@ -67,7 +67,7 @@ public class UsuarioFirebase extends AppCompatActivity {
 
                     String tipoUsuario = usuario.getTipo();
                     if(tipoUsuario.equals("Cliente")){
-                        activity.startActivity(new Intent(activity, ClienteActivity.class));
+                       activity.startActivity(new Intent(activity, ClienteActivity.class));
                     }else{
                         activity.startActivity(new Intent(activity, ProfissionalActivity.class));
                     }

@@ -23,7 +23,7 @@ import com.tcc.find_me.model.Usuario;
 
 public class CadastrarLoginActivity extends AppCompatActivity {
 
-    private EditText campoNome,campoEmail, campoSenha, campoEnredeco, campoBairro;
+    private EditText campoNome,campoEmail, campoSenha;
     private Switch switchTipoUsuario;
     private FirebaseAuth autenticacao;
 
@@ -31,46 +31,25 @@ public class CadastrarLoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastrar_login);
 
-        campoNome = findViewById(R.id.editNomeCadastro);
         campoEmail = findViewById(R.id.editEmailCadastro);
         campoSenha = findViewById(R.id.editSenhaCadastro);
-        campoEnredeco = findViewById(R.id.editTextEndereco);
-        campoBairro = findViewById(R.id.editTextBairro);
         switchTipoUsuario = findViewById(R.id.switchTipoUsuario);
 
     }
     public void validarCadastroUsuario(View view){
         //Recuperar textos dos campos
-        String textoNome = campoNome.getText().toString();
         String textoEmail = campoEmail.getText().toString();
         String textoSenha = campoSenha.getText().toString();
-        String textoEndereco = campoEnredeco.getText().toString();
-        String textoBairro = campoBairro.getText().toString();
 
         if (!textoEmail.isEmpty()){
             if(!textoSenha.isEmpty()){
-                if(!textoNome.isEmpty()){
-                    if(!textoEndereco.isEmpty()){
-                        if(!textoBairro.isEmpty()){
 
-                            Usuario usuario = new Usuario();
-                            usuario.setNome(textoNome);
-                            usuario.setEmail(textoEmail);
-                            usuario.setSenha(textoSenha);
-                            usuario.setTipo(verificaTipoUsuario());
-                            usuario.setEndereco(textoEndereco);
-                            usuario.setBairro(textoBairro);
-                            cadastrarUsuario(usuario);
+                Usuario usuario = new Usuario();
+                usuario.setEmail(textoEmail);
+                usuario.setSenha(textoSenha);
+                usuario.setTipo(verificaTipoUsuario());
+                cadastrarUsuario(usuario);
 
-                        }else {
-                            Toast.makeText(getApplicationContext(),"Preencha o Bairro !",Toast.LENGTH_LONG).show();
-                        }
-                    }else {
-                        Toast.makeText(getApplicationContext(),"Preencha o Endereço !",Toast.LENGTH_LONG).show();
-                    }
-                }else {
-                    Toast.makeText(getApplicationContext(),"Preencha o Nome !",Toast.LENGTH_LONG).show();
-                }
             }else {
                 Toast.makeText(getApplicationContext(),"Preencha a Senha !",Toast.LENGTH_LONG).show();
             }
@@ -137,9 +116,6 @@ public class CadastrarLoginActivity extends AppCompatActivity {
 }
 
 /*
-
-
-
                     if (task.isSuccessful()){
 
 

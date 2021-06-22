@@ -6,30 +6,18 @@
     android:layout_height="match_parent"
     tools:context=".CadastrarLoginActivity">
 
-    <EditText
-        android:id="@+id/editNomeCadastro"
-        android:layout_width="379dp"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Nome"
-        android:inputType="textPassword|textEmailAddress"
-        app:layout_constraintBottom_toTopOf="@+id/editEmailCadastro"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_chainStyle="packed" />
-
     <Switch
         android:id="@+id/switchTipoUsuario"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="24dp"
         android:button="@color/colorPrimary"
         android:drawableEnd="@color/colorPrimary"
         app:layout_constraintBottom_toTopOf="@+id/botaoEntrarLogin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextBairro" />
+        app:layout_constraintTop_toBottomOf="@+id/editSenhaCadastro" />
 
     <TextView
         android:id="@+id/textView10"
@@ -55,22 +43,26 @@
 
     <EditText
         android:id="@+id/editEmailCadastro"
-        android:layout_width="379dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="16dp"
         android:ems="10"
         android:hint="Email"
         android:inputType="textPassword|textEmailAddress"
         app:layout_constraintBottom_toTopOf="@+id/editSenhaCadastro"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editNomeCadastro" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed" />
 
     <Button
         android:id="@+id/botaoEntrarLogin"
         android:layout_width="125dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
         android:onClick="validarCadastroUsuario"
         android:text="Cadastrar"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -80,54 +72,18 @@
 
     <EditText
         android:id="@+id/editSenhaCadastro"
-        android:layout_width="379dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:ems="10"
         android:hint="Senha"
         android:inputType="textPassword|textEmailAddress"
-        app:layout_constraintBottom_toTopOf="@+id/editTextEndereco"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editEmailCadastro" />
-
-    <EditText
-        android:id="@+id/editTextEndereco"
-        android:layout_width="379dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:ems="10"
-        android:hint="Endereço"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/editTextBairro"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editSenhaCadastro" />
-
-    <EditText
-        android:id="@+id/editTextBairro"
-        android:layout_width="379dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:ems="10"
-        android:hint="Bairro"
-        android:inputType="textPersonName"
-        android:text="Name"
         app:layout_constraintBottom_toTopOf="@+id/switchTipoUsuario"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextEndereco" />
+        app:layout_constraintTop_toBottomOf="@+id/editEmailCadastro" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
