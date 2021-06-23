@@ -27,4 +27,7 @@ public class MainActivity extends AppCompatActivity {
         super.onStart();
         //UsuarioFirebase.redirecionaUsuarioLogado(MainActivity.this);
     }
+
+    // AULAS 284 , 285 E 286
+
 }

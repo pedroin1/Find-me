@@ -4,23 +4,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".config.ConfiguracaoCliente">
+    tools:context=".config.ConfiguracaoProfissional">
 
     <EditText
-        android:id="@+id/editNome"
+        android:id="@+id/editNomeP"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:ems="10"
         android:hint="Nome"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/editBairro"
+        app:layout_constraintBottom_toTopOf="@+id/editBairroP"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textoIntroducao" />
+        app:layout_constraintTop_toBottomOf="@+id/textoIntroducaoP" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/buttonP"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="validarDadosUsuario"
@@ -28,83 +28,82 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editEmailCliente" />
+        app:layout_constraintTop_toBottomOf="@+id/editEmailClienteP" />
 
     <EditText
-        android:id="@+id/editTelefone"
+        android:id="@+id/editTelefoneP"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
+        android:layout_marginBottom="16dp"
         android:ems="10"
         android:hint="Telefone"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/textoIntroducao2"
+        app:layout_constraintBottom_toTopOf="@+id/textoInformacaoP"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editBairro" />
+        app:layout_constraintTop_toBottomOf="@+id/editBairroP" />
 
     <EditText
-        android:id="@+id/editBairro"
+        android:id="@+id/editBairroP"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:ems="10"
         android:hint="Bairro"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/editTelefone"
+        app:layout_constraintBottom_toTopOf="@+id/editTelefoneP"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editNome" />
+        app:layout_constraintTop_toBottomOf="@+id/editNomeP" />
 
     <EditText
-        android:id="@+id/editEmailCliente"
+        android:id="@+id/editEmailClienteP"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:ems="10"
         android:hint="Email"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/button2"
+        app:layout_constraintBottom_toTopOf="@+id/buttonP"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTipoCliente" />
+        app:layout_constraintTop_toBottomOf="@+id/editTipoClienteP" />
 
     <TextView
-        android:id="@+id/textoIntroducao"
+        android:id="@+id/textoIntroducaoP"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:text="Altere Seus Dados !"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/editNome"
+        app:layout_constraintBottom_toTopOf="@+id/editNomeP"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_chainStyle="packed" />
 
     <EditText
-        android:id="@+id/editTipoCliente"
+        android:id="@+id/editTipoClienteP"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:ems="10"
         android:hint="Tipo"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/editEmailCliente"
+        app:layout_constraintBottom_toTopOf="@+id/editEmailClienteP"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textoIntroducao2" />
+        app:layout_constraintTop_toBottomOf="@+id/textoInformacaoP" />
 
     <TextView
-        android:id="@+id/textoIntroducao2"
+        android:id="@+id/textoInformacaoP"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:text="Informacoes Da Conta !"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/editTipoCliente"
+        app:layout_constraintBottom_toTopOf="@+id/editTipoClienteP"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTelefone" />
-
+        app:layout_constraintTop_toBottomOf="@+id/editTelefoneP" />
 </androidx.constraintlayout.widget.ConstraintLayout>
