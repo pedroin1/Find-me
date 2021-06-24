@@ -21,7 +21,7 @@ import org.jetbrains.annotations.NotNull;
 
 public class ConfiguracaoProfissional extends AppCompatActivity {
 
-    private EditText editNome,editBairro,editTelefone,editEmailCliente,editTipoCliente;
+    private EditText editNome,editCargo,editBairro,editTelefone,editEmailProfissional,editTipoProfissional;
     private String idUsuario,email,tipo;
 
     private FirebaseAuth autenticacao;
@@ -37,13 +37,16 @@ public class ConfiguracaoProfissional extends AppCompatActivity {
         firebaseRef = ConfiguracaoFirebase.getFirebaseDatabase();
         autenticacao = ConfiguracaoFirebase.getFirebaseAutenticacao();
 
-        editNome = findViewById(R.id.editNomeP);
-        editBairro = findViewById(R.id.editBairroP);
-        editTelefone = findViewById(R.id.editTelefoneP);
-        editEmailCliente = findViewById(R.id.editEmailClienteP);
-        editTipoCliente = findViewById(R.id.editTipoClienteP);
-        editEmailCliente.setFocusable(false);
-        editTipoCliente.setFocusable(false);
+        editNome = findViewById(R.id.editNomeProfissional);
+        editBairro = findViewById(R.id.editBairroProfissional);
+        editTelefone = findViewById(R.id.editTelefoneProfissional);
+        editCargo = findViewById(R.id.editCargoProfissional);
+
+
+        editEmailProfissional = findViewById(R.id.editEmailProfissional);
+        editTipoProfissional = findViewById(R.id.editTipoClienteP);
+        editEmailProfissional.setFocusable(false);
+        editTipoProfissional.setFocusable(false);
 
         recuperarDadosUsuario();
     }
@@ -62,10 +65,11 @@ public class ConfiguracaoProfissional extends AppCompatActivity {
 
                     Usuario usuario = snapshot.getValue(Usuario.class);
                     editNome.setText(usuario.getNome());
+                    editCargo.setText(usuario.getCargo().toUpperCase() );
                     editBairro.setText(usuario.getBairro());
                     editTelefone.setText(usuario.getCelular());
-                    editEmailCliente.setText(usuario.getEmail());
-                    editTipoCliente.setText(usuario.getTipo());
+                    editEmailProfissional.setText(usuario.getEmail());
+                    editTipoProfissional.setText(usuario.getTipo());
                 }
             }
 
@@ -79,18 +83,21 @@ public class ConfiguracaoProfissional extends AppCompatActivity {
     public void validarDadosUsuario(View view){
 
         String textoNome = editNome.getText().toString();
+        String textoCargo = editCargo.getText().toString();
         String textoBairro = editBairro.getText().toString();
         String textoTelefone = editTelefone.getText().toString();
-        String textoEmail = editEmailCliente.getText().toString();
-        String textoTipo = editTipoCliente.getText().toString();
+        String textoEmail = editEmailProfissional.getText().toString();
+        String textoTipo = editTipoProfissional.getText().toString();
 
         if (!textoNome.isEmpty()){
-            if(!textoBairro.isEmpty()){
-                if(!textoTelefone.isEmpty()){
+            if(!textoCargo.isEmpty()){
+                if(!textoBairro.isEmpty()){
+                    if(!textoTelefone.isEmpty()){
 
                     Usuario usuario = new Usuario();
                     usuario.setIdUsuario(idUsuario);
                     usuario.setNome(textoNome);
+                    usuario.setCargo(textoCargo);
                     usuario.setBairro(textoBairro);
                     usuario.setCelular(textoTelefone);
                     usuario.setEmail(textoEmail);
@@ -106,6 +113,10 @@ public class ConfiguracaoProfissional extends AppCompatActivity {
             }else{
                 Toast.makeText(getApplicationContext(),"Preencha o Bairro !",Toast.LENGTH_LONG).show();
             }
+
+          }else{
+                Toast.makeText(getApplicationContext(),"Preencha o Cargo !",Toast.LENGTH_LONG).show();
+         }
 
         }else{
             Toast.makeText(getApplicationContext(),"Preencha o Nome !",Toast.LENGTH_LONG).show();

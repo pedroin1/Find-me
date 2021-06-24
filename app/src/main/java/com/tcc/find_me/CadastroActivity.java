@@ -21,7 +21,7 @@ import com.tcc.find_me.Perfil.ProfissionalActivity;
 import com.tcc.find_me.config.ConfiguracaoFirebase;
 import com.tcc.find_me.model.Usuario;
 
-public class CadastrarLoginActivity extends AppCompatActivity {
+public class CadastroActivity extends AppCompatActivity {
 
     private EditText campoNome,campoEmail, campoSenha;
     private Switch switchTipoUsuario;
@@ -29,7 +29,7 @@ public class CadastrarLoginActivity extends AppCompatActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_cadastrar_login);
+        setContentView(R.layout.activity_cadastro);
 
         campoEmail = findViewById(R.id.editEmailCadastro);
         campoSenha = findViewById(R.id.editSenhaCadastro);

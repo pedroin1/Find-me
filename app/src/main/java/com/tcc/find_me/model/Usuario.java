@@ -13,6 +13,7 @@ public class Usuario {
     private String celular;
     private String endereco;
     private String bairro;
+    private String cargo;
     private String tipo;
 
     public Usuario() {
@@ -87,6 +88,14 @@ public class Usuario {
 
     public void setBairro(String bairro) {
         this.bairro = bairro;
+    }
+
+    public String getCargo() {
+        return cargo;
+    }
+
+    public void setCargo(String cargo) {
+        this.cargo = cargo.toUpperCase();
     }
 
     public String getTipo() { return tipo; }

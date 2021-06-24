@@ -110,7 +110,7 @@ public class LoginActivity extends AppCompatActivity {
 
 
     public void botaoCadastrese(View view) {
-        Intent intent = new Intent(this, CadastrarLoginActivity.class);
+        Intent intent = new Intent(this, CadastroActivity.class);
         startActivity(intent);
     }
 }

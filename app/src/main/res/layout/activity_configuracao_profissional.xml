@@ -7,14 +7,13 @@
     tools:context=".config.ConfiguracaoProfissional">
 
     <EditText
-        android:id="@+id/editNomeP"
+        android:id="@+id/editNomeProfissional"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
+        android:layout_marginTop="16dp"
         android:ems="10"
         android:hint="Nome"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/editBairroP"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textoIntroducaoP" />
@@ -23,48 +22,45 @@
         android:id="@+id/buttonP"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:onClick="validarDadosUsuario"
         android:text="Salvar"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editEmailClienteP" />
+        app:layout_constraintTop_toBottomOf="@+id/editEmailProfissional" />
 
     <EditText
-        android:id="@+id/editTelefoneP"
+        android:id="@+id/editTelefoneProfissional"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
+        android:layout_marginTop="16dp"
         android:ems="10"
         android:hint="Telefone"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/textoInformacaoP"
+        android:inputType="number|text|phone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editBairroP" />
+        app:layout_constraintTop_toBottomOf="@+id/editBairroProfissional" />
 
     <EditText
-        android:id="@+id/editBairroP"
+        android:id="@+id/editBairroProfissional"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
+        android:layout_marginTop="16dp"
         android:ems="10"
         android:hint="Bairro"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/editTelefoneP"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editNomeP" />
+        app:layout_constraintTop_toBottomOf="@+id/editCargoProfissional" />
 
     <EditText
-        android:id="@+id/editEmailClienteP"
+        android:id="@+id/editEmailProfissional"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
+        android:layout_marginTop="16dp"
         android:ems="10"
         android:hint="Email"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/buttonP"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTipoClienteP" />
@@ -73,24 +69,21 @@
         android:id="@+id/textoIntroducaoP"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
+        android:layout_marginTop="88dp"
         android:text="Altere Seus Dados !"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/editNomeP"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_chainStyle="packed" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/editTipoClienteP"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
+        android:layout_marginTop="16dp"
         android:ems="10"
         android:hint="Tipo"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/editEmailClienteP"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textoInformacaoP" />
@@ -99,11 +92,22 @@
         android:id="@+id/textoInformacaoP"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
+        android:layout_marginTop="16dp"
         android:text="Informacoes Da Conta !"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/editTipoClienteP"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTelefoneP" />
+        app:layout_constraintTop_toBottomOf="@+id/editTelefoneProfissional" />
+
+    <EditText
+        android:id="@+id/editCargoProfissional"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="Cargo"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editNomeProfissional" />
 </androidx.constraintlayout.widget.ConstraintLayout>
