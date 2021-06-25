@@ -9,7 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Find_me">
-        <activity android:name=".config.ConfiguracaoProfissional"></activity>
+        <activity
+            android:name=".Perfil.ChatActivity"
+            android:label="@string/title_activity_chat2"
+            android:theme="@style/Theme.Find_me.NoActionBar"></activity>
+        <activity android:name=".config.ConfiguracaoProfissional" />
         <activity android:name=".config.ConfiguracaoCliente" />
         <activity android:name=".Perfil.ProfissionalActivity" />
         <activity android:name=".Perfil.ClienteActivity" />

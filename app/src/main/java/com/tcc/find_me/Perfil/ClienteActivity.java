@@ -1,22 +1,22 @@
 package com.tcc.find_me.Perfil;
 
+import android.content.Intent;
+import android.os.Build;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.SearchView;
+import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import android.content.Intent;
-import android.os.Build;
-import android.os.Bundle;
-import android.util.Log;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
-import android.widget.EditText;
-import android.widget.SearchView;
-import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -26,6 +26,7 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.tcc.find_me.LoginActivity;
 import com.tcc.find_me.R;
+import com.tcc.find_me.RecyclerItemClickListener;
 import com.tcc.find_me.adapter.Adapter;
 import com.tcc.find_me.config.ConfiguracaoCliente;
 import com.tcc.find_me.config.ConfiguracaoFirebase;
@@ -61,6 +62,33 @@ public class ClienteActivity extends AppCompatActivity {
         recyclerViewCliente = findViewById(R.id.RecyclerViewCliente);
         recyclerViewCliente.setHasFixedSize(true);
         recyclerViewCliente.setLayoutManager(new LinearLayoutManager(this));
+
+        //evento de click
+        recyclerViewCliente.addOnItemTouchListener(
+                new RecyclerItemClickListener(
+                        getApplicationContext(),
+                        recyclerViewCliente,
+                        new RecyclerItemClickListener.OnItemClickListener() {
+                            @Override
+                            public void onItemClick(View view, int position) {
+                                Intent i = new Intent(ClienteActivity.this, ChatActivity.class);
+                                startActivity(i);
+
+                            }
+
+                            @Override
+                            public void onLongItemClick(View view, int position) {
+
+                            }
+
+                            @Override
+                            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                            }
+                        }
+                )
+        );
+
 
         //configurando adpter para o recycler
         adapter = new Adapter(listaUsuarios, this);

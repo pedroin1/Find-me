@@ -48,6 +48,10 @@ dependencies {
     implementation 'com.google.firebase:firebase-analytics'
     implementation 'com.google.firebase:firebase-database:18.0.0'
     implementation 	'com.google.firebase:firebase-auth:18.0.0'
+
+    //Imagens arredondadas
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+
 }
 
 //apply plugin: 'com.android.application'
