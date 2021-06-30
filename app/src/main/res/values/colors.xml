@@ -12,4 +12,7 @@
     <color name="colorPrimaryDark">#AE5700</color>
     <color name="colorAccent">#03DAC5</color>
     <color name="corFundo">#FBF5EF</color>
+
+    <color name="balaoRemetente">#ffc26c</color>
+    <color name="balaoDestinatario">#dcdcdc</color>
 </resources>

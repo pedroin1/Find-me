@@ -19,6 +19,7 @@ import com.google.firebase.auth.FirebaseAuthInvalidUserException;
 import com.tcc.find_me.Perfil.ClienteActivity;
 import com.tcc.find_me.Perfil.ProfissionalActivity;
 import com.tcc.find_me.config.ConfiguracaoFirebase;
+import com.tcc.find_me.helper.Base64Custom;
 import com.tcc.find_me.model.Usuario;
 
 public class CadastroActivity extends AppCompatActivity {
@@ -74,7 +75,8 @@ public class CadastroActivity extends AppCompatActivity {
 
                 if (task.isSuccessful()){
 
-                    String idUsuario = task.getResult().getUser().getUid();
+                    String idUsuario = Base64Custom.codificarBase64(usuario.getEmail());
+                    //String idUsuario = task.getResult().getUser().getUid();
                     usuario.setIdUsuario(idUsuario);
                     usuario.salvar();
 

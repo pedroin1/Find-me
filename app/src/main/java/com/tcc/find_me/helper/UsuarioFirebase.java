@@ -82,6 +82,9 @@ public class UsuarioFirebase extends AppCompatActivity {
     }
 
     public static String getIdentificadorUsuario(){
-        return getUsuarioAtual().getUid();
+        FirebaseAuth usuario = ConfiguracaoFirebase.getFirebaseAutenticacao();
+        String email = usuario.getCurrentUser().getEmail();
+        String identificadorUsuario = Base64Custom.codificarBase64(email);
+        return identificadorUsuario;
     }
 }

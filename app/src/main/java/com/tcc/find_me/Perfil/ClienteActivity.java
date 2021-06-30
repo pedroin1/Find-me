@@ -71,7 +71,9 @@ public class ClienteActivity extends AppCompatActivity {
                         new RecyclerItemClickListener.OnItemClickListener() {
                             @Override
                             public void onItemClick(View view, int position) {
+                                Usuario usuarioSelecionado = listaUsuarios.get(position);
                                 Intent i = new Intent(ClienteActivity.this, ChatActivity.class);
+                                i.putExtra("chatContato", usuarioSelecionado);
                                 startActivity(i);
 
                             }

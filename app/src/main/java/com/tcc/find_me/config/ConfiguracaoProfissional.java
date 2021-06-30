@@ -65,7 +65,7 @@ public class ConfiguracaoProfissional extends AppCompatActivity {
 
                     Usuario usuario = snapshot.getValue(Usuario.class);
                     editNome.setText(usuario.getNome());
-                    editCargo.setText(usuario.getCargo().toUpperCase() );
+                    editCargo.setText(usuario.getCargo());
                     editBairro.setText(usuario.getBairro());
                     editTelefone.setText(usuario.getCelular());
                     editEmailProfissional.setText(usuario.getEmail());
