@@ -20,36 +20,29 @@
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/imageFoto"
             android:layout_width="40dp"
-            android:layout_height="60dp"
+            android:layout_height="40dp"
             android:src="@drawable/avatar"
             app2:civ_border_color=" # FF000000 "
             app2:civ_border_width=" 0dp " />
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/textoNome"
+                android:id="@+id/textTitulo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingLeft="10dp"
                 android:text="Nome" />
 
             <TextView
-                android:id="@+id/textoCargo"
+                android:id="@+id/textUltimaMensagem"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingLeft="10dp"
-                android:text="Cargo" />
-
-            <TextView
-                android:id="@+id/textoBairro"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:paddingLeft="10dp"
-                android:text="Bairro" />
+                android:text="Ultima Mensagem" />
 
         </LinearLayout>
 

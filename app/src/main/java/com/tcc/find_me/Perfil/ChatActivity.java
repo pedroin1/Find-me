@@ -1,8 +1,6 @@
 package com.tcc.find_me.Perfil;
 
 import android.os.Bundle;
-import android.os.Message;
-import android.view.MenuInflater;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -25,6 +23,7 @@ import com.tcc.find_me.adapter.AdapterMensagem;
 import com.tcc.find_me.config.ConfiguracaoFirebase;
 import com.tcc.find_me.helper.Base64Custom;
 import com.tcc.find_me.helper.UsuarioFirebase;
+import com.tcc.find_me.model.Conversa;
 import com.tcc.find_me.model.Mensagem;
 import com.tcc.find_me.model.Usuario;
 
@@ -44,6 +43,7 @@ public class ChatActivity extends AppCompatActivity {
 
     private String idUsuarioRemetente;
     private String idUsuarioDestinatario;
+    private Usuario usuarioRemetente;
 
     private RecyclerView recyclerMensagens;
     private AdapterMensagem adapterMensagem;
@@ -128,13 +128,31 @@ public class ChatActivity extends AppCompatActivity {
             mensagem.setIdUsuario(idUsuarioRemetente);
             mensagem.setMensagem(textoMensagem);
 
-            //salvar mensagem
+            //salvar mensagem para o remetente
             salvarMensagem(idUsuarioRemetente,idUsuarioDestinatario,mensagem);
+
+            //salvar mensagem para o destinatario
+            salvarMensagem(idUsuarioDestinatario,idUsuarioRemetente,mensagem);
+
+            //salvar Conversa
+            salvarConversa(mensagem);
 
         }else{
             Toast.makeText(ChatActivity.this,"Digite uma mensagem para enviar!",Toast.LENGTH_LONG).show();
         }
 
+    }
+
+    private void salvarConversa(Mensagem msg){
+
+        Conversa conversaRemetente = new Conversa();
+
+        conversaRemetente.setIdRemetente(idUsuarioRemetente);
+        conversaRemetente.setIdDestinatario(idUsuarioDestinatario);
+        conversaRemetente.setUltimaMensagem(msg.getMensagem());
+        conversaRemetente.setUsuarioExibicao(usuarioDestinatario);
+
+        conversaRemetente.salvar();
     }
 
     private void salvarMensagem(String idRemetente, String idDestinatario, Mensagem msg){
