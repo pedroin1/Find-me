@@ -16,9 +16,12 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.FirebaseAuthInvalidUserException;
+import com.google.firebase.auth.FirebaseAuthUserCollisionException;
+import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
 import com.tcc.find_me.Perfil.ClienteActivity;
 import com.tcc.find_me.Perfil.ProfissionalActivity;
 import com.tcc.find_me.config.ConfiguracaoFirebase;
+import com.tcc.find_me.helper.Base64Custom;
 import com.tcc.find_me.model.Usuario;
 
 public class CadastroActivity extends AppCompatActivity {
@@ -74,7 +77,8 @@ public class CadastroActivity extends AppCompatActivity {
 
                 if (task.isSuccessful()){
 
-                    String idUsuario = task.getResult().getUser().getUid();
+                    String idUsuario = Base64Custom.codificarBase64(usuario.getEmail());
+                    //String idUsuario = task.getResult().getUser().getUid();
                     usuario.setIdUsuario(idUsuario);
                     usuario.salvar();
 
@@ -97,14 +101,19 @@ public class CadastroActivity extends AppCompatActivity {
 
                     String excessao = "";
                     try {
-                        throw task.getException();
-                    }catch ( FirebaseAuthInvalidUserException e){ //excessao para verificar se o usuario existe no banco
-                        excessao = "Usuario Nao Cadastrado";
-                    }catch (FirebaseAuthInvalidCredentialsException e){  //excessao para ver se o email e senha estao corretos
-                        excessao = "Email ou Senha Incorretos";
-                    }catch (Exception e) {
-                        excessao = "Erro ao Logar Na Conta !";
-                        e.printStackTrace();
+                        throw task.getException();  // tem que utilizar o throw para utilizar essas excessoes
+                    }catch  ( FirebaseAuthWeakPasswordException e ){
+                        excessao = "Digite uma senha mais forte !"; //excessao de senha fraca
+
+                    }catch ( FirebaseAuthInvalidCredentialsException e ){
+                        excessao = "Digite um email Valido"; //excessao de email invalido
+
+                    }catch (FirebaseAuthUserCollisionException e){
+                        excessao = "Esta conta ja foi cadastrada"; //excessao de conta ja cadastrada
+
+                    }catch (Exception e){
+                        excessao = "Erro ao cadastrar usuario" + e.getMessage(); //excessao generica
+                        e.printStackTrace(); // printar a excessao no log
                     }
 
                     Toast.makeText(getApplicationContext(),excessao,Toast.LENGTH_LONG).show();
