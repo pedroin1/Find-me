@@ -4,19 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:onClick="botaoEntrar"
     tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/botaoEntrar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="#000000"
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/gifIntroducao"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:onClick="botaoEntrar"
-        android:text="Acessar"
-        android:textColor="#FFFFFF"
-        app:backgroundTint="@color/colorPrimary"
+        android:src="@drawable/icone_gif"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
