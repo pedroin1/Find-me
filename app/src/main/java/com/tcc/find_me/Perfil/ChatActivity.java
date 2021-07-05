@@ -76,6 +76,7 @@ public class ChatActivity extends AppCompatActivity {
         Bundle bundle = getIntent().getExtras();
         if (bundle != null){
 
+            usuarioRemetente = (Usuario) bundle.getSerializable("chatUsuario");
             usuarioDestinatario = (Usuario) bundle.getSerializable("chatContato");
             textNomeChat.setText(usuarioDestinatario.getNome());
             circleImageFotoChat.setImageResource(R.drawable.avatar);
@@ -150,7 +151,7 @@ public class ChatActivity extends AppCompatActivity {
         conversaRemetente.setIdRemetente(idUsuarioRemetente);
         conversaRemetente.setIdDestinatario(idUsuarioDestinatario);
         conversaRemetente.setUltimaMensagem(msg.getMensagem());
-        conversaRemetente.setUsuarioExibicao(usuarioDestinatario);
+        conversaRemetente.setUsuarioExibicao(usuarioRemetente);
 
         conversaRemetente.salvar();
     }

@@ -30,6 +30,7 @@ import com.tcc.find_me.RecyclerItemClickListener;
 import com.tcc.find_me.adapter.Adapter;
 import com.tcc.find_me.config.ConfiguracaoCliente;
 import com.tcc.find_me.config.ConfiguracaoFirebase;
+import com.tcc.find_me.helper.UsuarioFirebase;
 import com.tcc.find_me.model.Usuario;
 
 import org.jetbrains.annotations.NotNull;
@@ -41,6 +42,9 @@ public class ClienteActivity extends AppCompatActivity {
 
     private FirebaseAuth autenticacao;
     private DatabaseReference usuariosRef;
+    private DatabaseReference firebaseRef;
+
+    private String idUsuario;
 
     private SearchView searchViewCliente;
     private RecyclerView recyclerViewCliente;
@@ -57,6 +61,10 @@ public class ClienteActivity extends AppCompatActivity {
         autenticacao = ConfiguracaoFirebase.getFirebaseAutenticacao();
         listaUsuarios = new ArrayList<>();
         usuariosRef = ConfiguracaoFirebase.getFirebaseDatabase().child("usuarios");
+        usuariosRef = ConfiguracaoFirebase.getFirebaseDatabase().child("usuarios");
+        firebaseRef = ConfiguracaoFirebase.getFirebaseDatabase();
+        idUsuario = UsuarioFirebase.getIdentificadorUsuario();
+
 
         //configurando Recycler View
         recyclerViewCliente = findViewById(R.id.RecyclerViewCliente);
@@ -72,9 +80,26 @@ public class ClienteActivity extends AppCompatActivity {
                             @Override
                             public void onItemClick(View view, int position) {
                                 Usuario usuarioSelecionado = listaUsuarios.get(position);
-                                Intent i = new Intent(ClienteActivity.this, ChatActivity.class);
-                                i.putExtra("chatContato", usuarioSelecionado);
-                                startActivity(i);
+                                usuariosRef = firebaseRef
+                                        .child("usuarios")
+                                        .child(idUsuario);
+
+                                usuariosRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
+                                        Usuario usuario = snapshot.getValue(Usuario.class);
+                                        Intent i = new Intent(ClienteActivity.this, ChatActivity.class);
+                                        i.putExtra("chatContato", usuarioSelecionado);
+                                        i.putExtra("chatUsuario",usuario);
+                                        startActivity(i);
+
+                                    }
+
+                                    @Override
+                                    public void onCancelled(@NonNull @NotNull DatabaseError error) {
+
+                                    }
+                                });
 
                             }
 
